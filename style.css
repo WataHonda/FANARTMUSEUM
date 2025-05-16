@@ -1,0 +1,175 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f0f0f0; /* 仮の背景色 */
+    /* 美術館の回廊風の背景画像を設定 */
+    /* 例: background-image: url('path/to/corridor-background.jpg'); */
+    /* background-size: cover; */
+    /* background-attachment: fixed; */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.gallery-section {
+    position: relative; /* 左右スクロールボタンなどを配置する場合の基準 */
+    padding: 20px 0;
+}
+
+#gallery-wrapper {
+    width: 100%;
+    overflow: hidden; /* ここでスクロールバーを隠す */
+    position: relative; /* スクロール検知エリアの基準 */
+}
+
+.gallery-container {
+    display: flex; /* 画像を横並びにする */
+    /* overflow-x: hidden; JavaScriptで制御するので不要になるかも */
+    white-space: nowrap; /* 画像が折り返さないようにする */
+    padding: 20px 0; /* 上下のパディング */
+    min-height: 400px; /* ギャラリーの高さを確保 */
+    position: relative;
+    /* transition: transform 0.5s ease-out; スムーズスクロール用 (JSで制御) */
+}
+
+.artwork-frame {
+    display: inline-block;
+    margin: 10px 20px; /* 左右のマージンを少し広めにとることも考慮 */
+    padding: 15px;
+    border: 10px solid #8B4513;
+    background-color: #fff;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer; /* 中央表示の対象であることを示す */
+    flex-shrink: 0; /* 無限スクロール時にアイテムが縮まないように */
+}
+
+.artwork-frame.is-active, /* 現在中央にある作品（参考） */
+.artwork-frame:hover { /* ホバー中の作品のスタイル変更 */
+    transform: scale(1.08);
+    box-shadow: 8px 8px 20px rgba(0,0,0,0.4);
+}
+
+.artwork-frame img {
+    display: block;
+    max-width: 300px; /* フレーム内の画像の最大幅（可変にする場合はJSで調整） */
+    max-height: 300px; /* フレーム内の画像の最大高さ（可変にする場合はJSで調整） */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* アスペクト比を保ちつつフレーム内に収める */
+}
+
+.artwork-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.artwork-info h3 {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+.artwork-info p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* スクロール検知エリア (オプション) */
+.scroll-trigger {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%; /* 画面端の15%を検知エリアとする */
+    z-index: 10;
+    /* background-color: rgba(0,0,255,0.1); デバッグ用 */
+}
+.scroll-trigger.left {
+    left: 0;
+    cursor: w-resize;
+}
+.scroll-trigger.right {
+    right: 0;
+    cursor: e-resize;
+}
+
+
+.post-form-section, .content-section {
+    background-color: white;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.post-form-section h2, .content-section h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #8B4513;
+    padding-bottom: 10px;
+}
+
+#artworkForm div {
+    margin-bottom: 15px;
+}
+
+#artworkForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#artworkForm input[type="text"],
+#artworkForm input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#artworkForm button {
+    background-color: #8B4513;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#artworkForm button:hover {
+    background-color: #A0522D;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 30px;
+}

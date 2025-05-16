@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ファンアート美術館</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">このサイトについて</a></li>
+                <li><a href="#post">投稿する</a></li>
+                <li><a href="#contact">問合せ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery-section">
+            <div id="gallery-wrapper"> {/* スクロール制御のラッパー */}
+                <div id="gallery" class="gallery-container">
+                    {/* ここにJavaScriptで画像が追加されます (クローン含む) */}
+                </div>
+            </div>
+            {/* 左右スクロール用のUIを追加することも可能 */}
+            {/* <button id="scrollLeftBtn">&lt;</button> */}
+            {/* <button id="scrollRightBtn">&gt;</button> */}
+        </section>
+
+        <section id="post" class="post-form-section">
+            <h2>作品を投稿する</h2>
+            <form id="artworkForm">
+                <div>
+                    <label for="artworkTitle">作品タイトル:</label>
+                    <input type="text" id="artworkTitle" name="artworkTitle" required>
+                </div>
+                <div>
+                    <label for="artistName">作者名（アーティスト名）:</label>
+                    <input type="text" id="artistName" name="artistName" required>
+                </div>
+                <div>
+                    <label for="artworkFile">ファイルアップロード:</label>
+                    <input type="file" id="artworkFile" name="artworkFile" accept="image/jpeg, image/png" required>
+                </div>
+                <button type="submit">投稿する</button>
+            </form>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>このサイトについて</h2>
+            <p>ファンアートを展示するオンライン美術館です。</p>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>問合せ</h2>
+            <p>ご意見・ご要望はこちらまで。</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; ファンアート美術館</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
